@@ -51,16 +51,16 @@ The repo's pre-commit mypy hook follows imports transitively, so committing chan
 
 ### Check-in 2 (end of week)
 
-**PR link:** [link to your submitted pull request]
+**PR link:** [#1](https://github.com/mdoran3/pathreview/pull/1)
 
-**Branch:** [the branch name you worked on, e.g. `fix/123-short-description`]
+**Branch:** `safety/64-newline-prompt-injection-sanitation-defense`
 
 **What you built:**
-[1–3 sentences summarizing what your fix does and how it works]
+Extended `PromptDefense.sanitize()` to actually neutralize every pattern in `INJECTION_PATTERNS` (not just angle brackets/template delimiters), and wired `PromptDefense` into `ingest_resume()` so resume text is checked with `is_injection_attempt()` and always sanitized before chunking — previously neither method was called anywhere in production code.
 
 **Tests added or updated:**
-[Which test files did you touch? What do they cover?]
+`tests/unit/test_prompt_defense.py` — added per-pattern `sanitize()` tests (separator lines, role switching, ignore-instruction phrasing, code execution attempts) plus a benign-content preservation test. `tests/unit/test_pipeline.py` (new) — ingestion-level test confirming a malicious resume is sanitized before reaching the chunker, and a benign resume passes through unmodified.
 
-**Self-review confirmation:** [ ] make check passes  [ ] make test-unit passes
+**Self-review confirmation:** [ ] make check passes  [X] make test-unit passes (382 passed, 53 failed — one fewer than the pre-existing 54-failure baseline; no new failures introduced, see PLAN.md/PR body for details)
 
-**Draft PR feedback received from:** [name or Slack handle, or "none"]
+**Draft PR feedback received from:** none yet
