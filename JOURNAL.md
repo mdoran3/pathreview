@@ -64,3 +64,45 @@ Extended `PromptDefense.sanitize()` to actually neutralize every pattern in `INJ
 **Self-review confirmation:** [ ] make check passes  [X] make test-unit passes (382 passed, 53 failed — one fewer than the pre-existing 54-failure baseline; no new failures introduced, see PLAN.md/PR body for details)
 
 **Draft PR feedback received from:** none yet
+
+
+
+## Week 10 — Iteration & reflection
+
+### Reviewer feedback
+
+**Feedback received:** [x] Yes  [ ] No — still awaiting review
+
+**Summary of feedback:**
+N/A
+
+**How you responded:**
+N/A
+
+---
+
+### Reflection
+
+**What was harder than you expected?**
+[Be specific — what part of the process, codebase, or workflow
+surprised you?]
+When dealing with codebases in the past, they have been either smaller, or I have writtent all the code myself, or when presented with large codebases I was given more time to review it and understand it. In a project like this, the issues are narrow. At the same time fixing these issues could have implications on other parts of the codebase. So while understanding the problem that needed to be patched was not overly complicated, ensuring that it would not inadvertently trigger failure or issues somewhere else in the codebase required more deliberate thought. This was particularly true in my case when modifying the injestion pipeline, since this is the main avenue where the data flows through. 
+
+**What did you learn about working in a large codebase?**
+[What's different about contributing to someone else's production code
+vs. building your own project?]
+When building your own project, you are the director and entirely in charge of your domain. Being part of a group of engineers working on a large codebase requires more caution, especially the first time around. I wanted to be cautious not to break someone elses hard work. I had to be mindful of the protocols that were already in place for the particular project. Another important aspect is taking the time to walk through the structrue of the system means that more time for pause and reflection is needed. Lastly, when everything is wrapping up it is good practice to log information and document your code and changes so that others can understand exactly what actions were taken and why. 
+
+**How did AI tools help — and where did they fall short?**
+[Where was AI assistance most useful this module? Where did you need
+to go beyond what AI could give you?]
+AI tools did most of the heavy lifting. They could pinpoint the problem and locate it, explain why certain areas were problematic, and make suggestions for fixes. AI on the other hand could not help me understand how to properly integrate my solution. There were safety guards that were put in place for making commits and this required me to decide to the best of my knowledge what direction to take and how to properly integrate my fix into the codebase. 
+
+**What would you do differently if you started over?**
+[Issue selection, planning, implementation, or process — anything
+you'd change?]
+I think spending more time on evaluating outcomes is an area where I could have spent more time. I would have liked to try several different resumes with the injections and see what I could get to bypass the safety mechanisms. I would have also liked to tinker to see how I could possible damage or modify the codebase if I could indeed get passed the safety mechanism before they were fully implemented as well as after. 
+
+**What are you most proud of from this module?**
+[One thing — it doesn't have to be the PR itself.]
+I am most proud of chosing a tier 2 issue as opposed to a tier 1. I usually start from the bottom and gradually work my way up in most domains, even if it means review. In this case though while exploring the issues I found that a lot of the tier 1s were documentation problems, and I wanted to do something a bit more technical as opposed to more beauracratic inside the codebase. 
